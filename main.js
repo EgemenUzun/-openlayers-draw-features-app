@@ -34,12 +34,7 @@ function addInteraction() {
       draw = new Draw({
         source: source,
         type: 'Circle',
-        geometryFunction: function(coordinates, geometry) {
-          if (!geometry) {
-            geometry = fromCircle(new ol.geom.Circle(coordinates, 5000), 64);
-          }
-          return geometry;
-        },
+        geometryFunction: createRegularPolygon(4)
       });
     } else {
       draw = new Draw({
